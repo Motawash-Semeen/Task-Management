@@ -15,6 +15,6 @@ class WebModuleController extends Controller
      */
     public function welcome()
     {
-        return view("WebModule::welcome");
+        return view("WebModule::dashboard");
     }
 }
