@@ -2,4 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'WebModuleController@welcome');
+Route::middleware('auth')->group(function () {
+  Route::get('/', 'WebModuleController@welcome')->middleware('auth');
+});

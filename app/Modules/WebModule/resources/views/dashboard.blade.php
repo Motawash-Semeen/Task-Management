@@ -7,12 +7,12 @@
               <div class="card card-block card-stretch card-height">
                   <div class="card-body">
                       <div class="top-block d-flex align-items-center justify-content-between">
-                          <h5>Investment</h5>
-                          <span class="badge badge-primary">Monthly</span>
+                          <h5>Total Projects</h5>
+                          {{-- <span class="badge badge-primary">Monthly</span> --}}
                       </div>
-                      <h3>$<span class="counter">35000</span></h3>
+                      <h3><span class="counter">35000</span></h3>
                       <div class="d-flex align-items-center justify-content-between mt-1">
-                          <p class="mb-0">Total Revenue</p>
+                          <p class="mb-0">Total Completed</p>
                           <span class="text-primary">65%</span>
                       </div>
                       <div class="iq-progress-bar bg-primary-light mt-2">
@@ -25,12 +25,12 @@
               <div class="card card-block card-stretch card-height">
                   <div class="card-body">
                       <div class="top-block d-flex align-items-center justify-content-between">
-                          <h5>Sales</h5>
-                          <span class="badge badge-warning">Anual</span>
+                          <h5>Total Tasks</h5>
+                          {{-- <span class="badge badge-warning">Anual</span> --}}
                       </div>
-                      <h3>$<span class="counter">25100</span></h3>
+                      <h3><span class="counter">25100</span></h3>
                       <div class="d-flex align-items-center justify-content-between mt-1">
-                          <p class="mb-0">Total Revenue</p>
+                          <p class="mb-0">Total Completed</p>
                           <span class="text-warning">35%</span>
                       </div>
                       <div class="iq-progress-bar bg-warning-light mt-2">
@@ -43,12 +43,12 @@
               <div class="card card-block card-stretch card-height">
                   <div class="card-body">
                       <div class="top-block d-flex align-items-center justify-content-between">
-                          <h5>Cost</h5>
+                          <h5>Total User</h5>
                           <span class="badge badge-success">Today</span>
                       </div>
-                      <h3>$<span class="counter">33000</span></h3>
+                      <h3><span class="counter">33000</span></h3>
                       <div class="d-flex align-items-center justify-content-between mt-1">
-                          <p class="mb-0">Total Revenue</p>
+                          <p class="mb-0">Total login</p>
                           <span class="text-success">85%</span>
                       </div>
                       <div class="iq-progress-bar bg-success-light mt-2">

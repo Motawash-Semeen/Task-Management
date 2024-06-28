@@ -17,4 +17,9 @@ class UserModuleController extends Controller
     {
         return view("UserModule::users");
     }
+
+    public function profile()
+    {
+        return view("UserModule::user-profile");
+    }
 }

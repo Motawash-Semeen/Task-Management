@@ -28,25 +28,11 @@
     <!-- Wrapper Start -->
     <div class="wrapper">
 
-        @include('WebModule::partials.sidebar')
-        @include('WebModule::partials.navbar')
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @elseif(session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
         @yield('content')
-
+        
     </div>
     <!-- Wrapper End-->
 
-    <!-- Modal list start -->
-    @include('WebModule::partials.modal')
-    @include('WebModule::partials.footer')
     <!-- Backend Bundle JavaScript -->
     <script src="{{ asset('/assets/js/backend-bundle.min.js') }}"></script>
 

@@ -11,8 +11,8 @@
   <div class="data-scrollbar" data-scroll="1">
       <nav class="iq-sidebar-menu">
           <ul id="iq-sidebar-toggle" class="iq-menu">
-              <li class="active">
-                  <a href="../backend/index.html" class="svg-icon">
+              <li class="{{ Request::is('/') ? 'active' : '' }}">
+                  <a href="{{ url('/') }}" class="svg-icon">
                       <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -22,8 +22,8 @@
                       <span class="ml-4">Dashboards</span>
                   </a>
               </li>
-              <li class="">
-                  <a href="../backend/page-project.html" class="svg-icon">
+              <li class="{{ Request::is('projects') ? 'active' : '' }}">
+                  <a href="{{ url('/projects') }}" class="svg-icon">
                       <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -36,8 +36,8 @@
                       <span class="ml-4">Projects</span>
                   </a>
               </li>
-              <li class="">
-                  <a href="../backend/page-task.html" class="svg-icon">
+              <li class="{{ Request::is('tasks') ? 'active' : '' }}">
+                  <a href="{{ url('/tasks') }}" class="svg-icon">
                       <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -49,8 +49,8 @@
                       <span class="ml-4">Task</span>
                   </a>
               </li>
-              <li class="">
-                  <a href="../backend/page-employee.html" class="svg-icon">
+              <li class="{{ Request::is('all-users') ? 'active' : '' }}">
+                  <a href="{{ '/all-users' }}" class="svg-icon">
                       <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                           stroke-linecap="round" stroke-linejoin="round">

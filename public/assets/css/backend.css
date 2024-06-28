@@ -19917,7 +19917,13 @@ fieldset[disabled] .btn {
     top: 0;
     font-size: 14px;
     background: #F8F7F7;
-    padding: 5px 8px; }
+    border-radius: 16px;
+    padding: 5px 8px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
 
 @media (min-width: 992px) {
   .lb-img {
