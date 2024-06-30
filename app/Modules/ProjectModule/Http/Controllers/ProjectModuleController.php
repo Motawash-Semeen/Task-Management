@@ -19,7 +19,9 @@ class ProjectModuleController extends Controller
     public function index()
     {
         $categories = Category::all(); // Fetch all categories
-        return view("ProjectModule::projects", compact('categories'));
+        $projects = Projects::all(); // Fetch all projects
+        return view("ProjectModule::projects", compact('categories', 
+        'projects'));
     }
     public function store(Request $request)
     {

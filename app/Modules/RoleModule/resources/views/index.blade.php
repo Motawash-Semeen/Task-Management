@@ -1,4 +1,4 @@
-@extends('WebModule::master')
+{{-- @extends('WebModule::master')
 @section('content')
     <div class="content-page">
         <div class="container-fluid">
@@ -179,4 +179,6 @@
             <!-- Page end  -->
         </div>
     </div>
-@endsection
+@endsection --}}
+
+sdfsd

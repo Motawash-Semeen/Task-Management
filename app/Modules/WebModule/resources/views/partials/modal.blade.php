@@ -1,86 +1,90 @@
  <!-- Modal list start -->
  @if (session('success'))
- <div class="alert alert-success">
-     {{ session('success') }}
- </div>
-@elseif(session('error'))
- <div class="alert alert-danger">
-     {{ session('error') }}
- </div>
-@endif
- <div class="modal fade" role="dialog" aria-modal="true" id="new-project-modal">
-     <div class="modal-dialog  modal-dialog-centered" role="document">
-         <div class="modal-content">
-             <div class="modal-header d-block text-center pb-3 border-bttom">
-                 <h3 class="modal-title" id="exampleModalCenterTitle01">New Project</h3>
-             </div>
-             <form action="{{ url('project-store') }}" method="POST">
-                 @csrf
-                 <div class="modal-body">
-                     <div class="row">
-                         <div class="col-lg-12">
-                             <div class="form-group mb-3">
-                                 <label for="exampleInputText01" class="h5">Project Name*</label>
-                                 <input type="text" class="form-control" id="exampleInputText01"
-                                     placeholder="Project Name" name="name">
+     <div class="alert alert-success">
+         {{ session('success') }}
+     </div>
+ @elseif(session('error'))
+     <div class="alert alert-danger">
+         {{ session('error') }}
+     </div>
+ @endif
+ @if (request()->is('projects/*') || request()->is('projects'))
+     <div class="modal fade" role="dialog" aria-modal="true" id="new-project-modal">
+         <div class="modal-dialog  modal-dialog-centered" role="document">
+             <div class="modal-content">
+                 <div class="modal-header d-block text-center pb-3 border-bttom">
+                     <h3 class="modal-title" id="exampleModalCenterTitle01">New Project</h3>
+                 </div>
+                 <form action="{{ url('project-store') }}" method="POST">
+                     @csrf
+                     <div class="modal-body">
+                         <div class="row">
+                             <div class="col-lg-12">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText01" class="h5">Project Name*</label>
+                                     <input type="text" class="form-control" id="exampleInputText01"
+                                         placeholder="Project Name" name="name">
+                                 </div>
                              </div>
-                         </div>
-                         <div class="col-lg-6">
-                             <div class="form-group mb-3">
-                                 <label for="exampleInputText2" class="h5">Categories *</label>
-                                 <select name="category" class="selectpicker form-control" data-style="py-0">
-                                     @foreach ($categories as $category)
-                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                     @endforeach
-                                 </select>
+                             <div class="col-lg-6">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText2" class="h5">Categories *</label>
+                                     <select name="category" class="selectpicker form-control" data-style="py-0">
+                                         @foreach ($categories as $category)
+                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                         @endforeach
+                                     </select>
+                                 </div>
                              </div>
-                         </div>
-                         <div class="col-lg-6">
-                             <div class="form-group mb-3">
-                                 <label for="exampleInputText004" class="h5">Due Dates*</label>
-                                 <input type="date" class="form-control" id="exampleInputText004" name="due_date">
+                             <div class="col-lg-6">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText004" class="h5">Due Dates*</label>
+                                     <input type="date" class="form-control" id="exampleInputText004"
+                                         name="due_date">
+                                 </div>
                              </div>
-                         </div>
-                         <div class="col-lg-12">
-                             <div class="form-group mb-3">
-                                 <label for="exampleInputText07" class="h5">Assign Members*</label>
-                                 <input type="text" class="form-control" id="exampleInputText07" name="members">
+                             <div class="col-lg-12">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText07" class="h5">Assign Members*</label>
+                                     <input type="text" class="form-control" id="exampleInputText07" name="members">
+                                 </div>
                              </div>
-                         </div>
-                         <div class="col-lg-6">
-                             <div class="form-group mb-3">
-                                 <label for="exampleInputText2" class="h5">Priority *</label>
-                                 <select name="status" class="selectpicker form-control" data-style="py-0">
-                                     <option value="High">High</option>
-                                     <option value="Medium">Medium</option>
-                                     <option value="Low">Low</option>
-                                 </select>
+                             <div class="col-lg-6">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText2" class="h5">Priority *</label>
+                                     <select name="status" class="selectpicker form-control" data-style="py-0">
+                                         <option value="High">High</option>
+                                         <option value="Medium">Medium</option>
+                                         <option value="Low">Low</option>
+                                     </select>
+                                 </div>
                              </div>
-                         </div>
-                         <div class="col-lg-6">
-                             <div class="form-group mb-3">
-                                 <label for="exampleInputText2" class="h5">Code *</label>
-                                 <input type="text" class="form-control" id="exampleInputText07" name="code">
+                             <div class="col-lg-6">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText2" class="h5">Code *</label>
+                                     <input type="text" class="form-control" id="exampleInputText07" name="code">
+                                 </div>
                              </div>
-                         </div>
-                         <div class="col-lg-12">
-                             <div class="form-group mb-3">
-                                 <label for="exampleFormControlTextarea1" class="h5">Description</label>
-                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                             <div class="col-lg-12">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleFormControlTextarea1" class="h5">Description</label>
+                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                                 </div>
                              </div>
-                         </div>
-                         <div class="col-lg-12">
-                             <div class="d-flex flex-wrap align-items-center justify-content-center mt-2">
-                                 <button type="submit" class="btn btn-primary mr-3">Save</button>
-                                 <button type="reset" class="btn btn-secondary">Cancel</button>
+                             <div class="col-lg-12">
+                                 <div class="d-flex flex-wrap align-items-center justify-content-center mt-2">
+                                     <button type="submit" class="btn btn-primary mr-3">Save</button>
+                                     <button type="reset" class="btn btn-secondary">Cancel</button>
+                                 </div>
                              </div>
                          </div>
                      </div>
-                 </div>
-             </form>
+                 </form>
+             </div>
          </div>
      </div>
- </div>
+ @endif
+
  <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="new-task-modal">
      <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
          <div class="modal-content">
