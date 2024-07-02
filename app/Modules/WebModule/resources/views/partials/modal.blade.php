@@ -1,13 +1,4 @@
  <!-- Modal list start -->
- @if (session('success'))
-     <div class="alert alert-success">
-         {{ session('success') }}
-     </div>
- @elseif(session('error'))
-     <div class="alert alert-danger">
-         {{ session('error') }}
-     </div>
- @endif
  @if (request()->is('projects/*') || request()->is('projects'))
      <div class="modal fade" role="dialog" aria-modal="true" id="new-project-modal">
          <div class="modal-dialog  modal-dialog-centered" role="document">
@@ -306,3 +297,49 @@
          </div>
      </div>
  </div>
+ @if (request()->is('roles/*') || request()->is('roles'))
+     <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="new-role-modal">
+         <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
+             <div class="modal-content">
+                 <div class="modal-header d-block text-center pb-3 border-bttom">
+                     <h3 class="modal-title" id="exampleModalCenterTitle">New Role</h3>
+                 </div>
+                 <div class="modal-body">
+                    <form action="{{ url('roles/store') }}" method="POST">
+                        @csrf
+                     <div class="row">
+                         <div class="col-lg-12">
+                             <div class="form-group mb-3">
+                                 <label for="exampleInputText02" class="h5">Role Name</label>
+                                 <input type="text" class="form-control" id="exampleInputText02"
+                                     placeholder="Enter role Name" name="name">
+                                 <a href="#" class="task-edit text-body"><i class="ri-edit-box-line"></i></a>
+                             </div>
+                         </div>
+                         <div class="col-lg-12">
+                             <div class="form-group mb-3">
+                                <label for="exampleInputText02 col-md-12" class="h5">Role Permissions</label>
+                                <div class="col-md-12">
+                                    @foreach ($permissions as $permission)
+                                <div class="custom-control custom-checkbox custom-checkbox-color-check custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input bg-primary" id="customCheck-{{ $permission->id }}" name="permissions[]" value="{{ $permission->id }}">
+                                    <label class="custom-control-label" for="customCheck-{{ $permission->id }}"> {{ $permission->name }}</label>
+                                 </div>
+                                @endforeach
+                                </div>
+                                
+                             </div>
+                         </div>
+                         <div class="col-lg-12">
+                            <div class="d-flex flex-wrap align-items-center justify-content-center mt-2">
+                                <button type="submit" class="btn btn-primary mr-3">Save</button>
+                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </div>
+                     </div>
+                    </form>
+                 </div>
+             </div>
+         </div>
+     </div>
+ @endif

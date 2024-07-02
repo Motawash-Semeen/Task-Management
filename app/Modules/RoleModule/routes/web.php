@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['module' => 'RoleModule', 'middleware' => ['auth']], function() {
 
-  Route::get('/all-roles', [RoleModuleController::class, 'index']);
+  Route::get('/roles', [RoleModuleController::class, 'index']);
+  Route::post('/roles/store', [RoleModuleController::class, 'store']);
 
 });
