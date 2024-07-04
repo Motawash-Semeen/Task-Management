@@ -49,8 +49,8 @@
                       <span class="ml-4">Task</span>
                   </a>
               </li>
-              <li class="{{ Request::is('all-users') ? 'active' : '' }}">
-                  <a href="{{ '/all-users' }}" class="svg-icon">
+              <li class="{{ Request::is('users') ? 'active' : '' }}">
+                  <a href="{{ '/users' }}" class="svg-icon">
                       <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -60,8 +60,8 @@
                       <span class="ml-4">Employees</span>
                   </a>
               </li>
-              <li class="">
-                  <a href="../backend/page-desk.html" class="svg-icon">
+              <li class="{{ Request::is('roles') ? 'active' : '' }}">
+                  <a href="{{ '/roles' }}" class="svg-icon">
                       <svg class="svg-icon" width="25" height="25"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                           stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -72,7 +72,7 @@
                           <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                           <line x1="12" y1="22.08" x2="12" y2="12"></line>
                       </svg>
-                      <span class="ml-4">Desk</span>
+                      <span class="ml-4">Roles</span>
                   </a>
               </li>
               <li class="">

@@ -235,7 +235,7 @@
                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                   </svg>
-                                  <a href="{{ url('user-profile') }}">Profile</a>
+                                  <a href="{{ url('users/profile') }}">Profile</a>
                               </li>
                               <li class="dropdown-item  d-flex svg-icon border-top">
                                   <svg class="svg-icon mr-0 text-primary" id="h-05-p" width="20"

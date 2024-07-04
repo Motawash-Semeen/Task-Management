@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['module' => 'UserModule', 'middleware' => ['auth']], function() {
 
-  Route::get('/all-users', [UserModuleController::class, 'index']);
-  Route::get('/user-profile', [UserModuleController::class, 'profile']);
+  Route::get('/users', [UserModuleController::class, 'index']);
+  Route::get('/users/profile', [UserModuleController::class, 'profile']);
+  Route::post('/users/create', [UserModuleController::class, 'store']);
 
 });
