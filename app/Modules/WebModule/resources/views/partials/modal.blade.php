@@ -76,84 +76,101 @@
      </div>
  @endif
 
- <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="new-task-modal">
-     <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
-         <div class="modal-content">
-             <div class="modal-header d-block text-center pb-3 border-bttom">
-                 <h3 class="modal-title" id="exampleModalCenterTitle">New Task</h3>
-             </div>
-             <div class="modal-body">
-                 <div class="row">
-                     <div class="col-lg-12">
-                         <div class="form-group mb-3">
-                             <label for="exampleInputText02" class="h5">Task Name</label>
-                             <input type="text" class="form-control" id="exampleInputText02"
-                                 placeholder="Enter task Name">
-                             <a href="#" class="task-edit text-body"><i class="ri-edit-box-line"></i></a>
-                         </div>
-                     </div>
-                     <div class="col-lg-4">
-                         <div class="form-group mb-3">
-                             <label for="exampleInputText2" class="h5">Assigned to</label>
-                             <select name="type" class="selectpicker form-control" data-style="py-0">
-                                 <option>Memebers</option>
-                                 <option>Kianna Septimus</option>
-                                 <option>Jaxson Herwitz</option>
-                                 <option>Ryan Schleifer</option>
-                             </select>
-                         </div>
-                     </div>
-                     <div class="col-lg-4">
-                         <div class="form-group mb-3">
-                             <label for="exampleInputText05" class="h5">Due Dates*</label>
-                             <input type="date" class="form-control" id="exampleInputText05" value="">
-                         </div>
-                     </div>
-                     <div class="col-lg-4">
-                         <div class="form-group mb-3">
-                             <label for="exampleInputText2" class="h5">Category</label>
-                             <select name="type" class="selectpicker form-control" data-style="py-0">
-                                 <option>Design</option>
-                                 <option>Android</option>
-                                 <option>IOS</option>
-                                 <option>Ui/Ux Design</option>
-                                 <option>Development</option>
-                             </select>
-                         </div>
-                     </div>
-                     <div class="col-lg-12">
-                         <div class="form-group mb-3">
-                             <label for="exampleInputText040" class="h5">Description</label>
-                             <textarea class="form-control" id="exampleInputText040" rows="2"></textarea>
-                         </div>
-                     </div>
-                     <div class="col-lg-12">
-                         <div class="form-group mb-3">
-                             <label for="exampleInputText005" class="h5">Checklist</label>
-                             <input type="text" class="form-control" id="exampleInputText005"
-                                 placeholder="Add List">
-                         </div>
-                     </div>
-                     <div class="col-lg-12">
-                         <div class="form-group mb-0">
-                             <label for="exampleInputText01" class="h5">Attachments</label>
-                             <div class="custom-file">
-                                 <input type="file" class="custom-file-input" id="inputGroupFile003">
-                                 <label class="custom-file-label" for="inputGroupFile003">Upload media</label>
+ @if (request()->is('tasks/*') || request()->is('tasks'))
+     <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="new-task-modal">
+         <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
+             <div class="modal-content">
+                 <div class="modal-header d-block text-center pb-3 border-bttom">
+                     <h3 class="modal-title" id="exampleModalCenterTitle">New Task</h3>
+                 </div>
+                 <form action="{{ url('task-store') }}" method="POST" enctype="multipart/form-data">
+                     @csrf
+                     <div class="modal-body">
+                         <div class="row">
+                             <div class="col-lg-12">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText02" class="h5">Task Name</label>
+                                     <input type="text" class="form-control" id="exampleInputText02"
+                                         placeholder="Enter task Name" name="task_name">
+                                     <a href="#" class="task-edit text-body"><i
+                                             class="ri-edit-box-line"></i></a>
+                                 </div>
+                             </div>
+                             <div class="col-lg-6">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText2" class="h5">Project Name</label>
+                                     <select name="project" class="selectpicker form-control" data-style="py-0">
+                                         <option value="">Select one</option>
+                                         @foreach ($projects as $project)
+                                             <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                         @endforeach
+                                     </select>
+                                 </div>
+                             </div>
+                             <div class="col-lg-6">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText2" class="h5">Assigned to</label>
+                                     <select name="member" class="selectpicker form-control" data-style="py-0">
+                                         <option value="">Memebers</option>
+                                         @foreach ($members as $member)
+                                             <option value="{{ $member->id }}">{{ $member->name }}</option>
+                                         @endforeach
+                                     </select>
+                                 </div>
+                             </div>
+                             <div class="col-lg-6">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText05" class="h5">Due Dates*</label>
+                                     <input type="date" class="form-control" id="exampleInputText05" name="due_date"
+                                         value="">
+                                 </div>
+                             </div>
+                             <div class="col-lg-6">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText2" class="h5">Category</label>
+                                     <select name="category" class="selectpicker form-control" data-style="py-0">
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                     </select>
+                                 </div>
+                             </div>
+                             <div class="col-lg-12">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText040" class="h5">Description</label>
+                                     <textarea class="form-control" id="exampleInputText040" rows="2" name="desc"></textarea>
+                                 </div>
+                             </div>
+                             {{-- <div class="col-lg-12">
+                                 <div class="form-group mb-3">
+                                     <label for="exampleInputText005" class="h5">Checklist</label>
+                                     <input type="text" class="form-control" id="exampleInputText005"
+                                         placeholder="Add List">
+                                 </div>
+                             </div> --}}
+                             <div class="col-lg-12">
+                                 <div class="form-group mb-0">
+                                     <label for="exampleInputText01" class="h5">Attachments</label>
+                                     <div class="custom-file">
+                                         <input type="file" class="custom-file-input" id="inputGroupFile003" name="attachment">
+                                         <label class="custom-file-label" for="inputGroupFile003">Upload media</label>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-lg-12">
+                                 <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-4">
+                                     <button type="submit" class="btn btn-primary mr-3">Save</button>
+                                     <button type="reset" class="btn btn-secondary">Cancel</button>
+                                 </div>
                              </div>
                          </div>
                      </div>
-                     <div class="col-lg-12">
-                         <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-4">
-                             <div class="btn btn-primary mr-3" data-dismiss="modal">Save</div>
-                             <div class="btn btn-primary" data-dismiss="modal">Cancel</div>
-                         </div>
-                     </div>
-                 </div>
+                 </form>
              </div>
          </div>
      </div>
- </div>
+ @endif
+
  @if (request()->is('users/*') || request()->is('users'))
      <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="new-user-modal">
          <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
@@ -162,7 +179,7 @@
                      <h3 class="modal-title" id="exampleModalCenterTitle02">New User</h3>
                  </div>
                  <form action="{{ url('users/create') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                     @csrf
                      <div class="modal-body">
                          <div class="row">
                              <div class="col-lg-6">
@@ -220,14 +237,14 @@
                                  <div class="form-group mb-3">
                                      <label for="exampleInputText2" class="h5">Password</label>
                                      <input type="password" class="form-control" id="exampleInputText006"
-                                     placeholder="Enter your Password" name="password">
+                                         placeholder="Enter your Password" name="password">
                                  </div>
                              </div>
                              <div class="col-lg-6">
                                  <div class="form-group mb-3">
                                      <label for="exampleInputText2" class="h5">Confirm Password</label>
                                      <input type="password" class="form-control" id="exampleInputText006"
-                                     placeholder="Enter your Password" name="confirm_password">
+                                         placeholder="Enter your Password" name="confirm_password">
                                  </div>
                              </div>
                              <div class="col-lg-12">

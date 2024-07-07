@@ -11,4 +11,8 @@ class Category extends Model
 
     protected $table = 'categories';
     protected $primaryKey = 'id';
+
+    public function task(){
+        return $this->hasMany('App\Modules\TaskModule\Models\Tasks', 'category_id');
+    }
 }

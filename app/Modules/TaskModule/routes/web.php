@@ -6,5 +6,5 @@ use Illuminate\Support\Facades\Route;
 Route::group(['module' => 'TaskModule', 'middleware' => ['auth']], function() {
 
   Route::get('/tasks', [TaskModuleController::class, 'index']);
-
+  Route::post('/task-store', [TaskModuleController::class, 'store']);
 });
